@@ -41,6 +41,20 @@ public class AddressBookServiceImpl implements AddressBookService {
     }
 
     @Override
+    public String deleteContact(String name) {
+
+        for (Contact contact : list) {
+
+            if (contact.getFirstName().equalsIgnoreCase(name)) {
+                list.remove(contact);
+                return "Contact deleted successfully";
+            }
+        }
+
+        return "Contact not found";
+    }
+
+    @Override
     public List<Contact> getAllContacts() {
         return list;
     }

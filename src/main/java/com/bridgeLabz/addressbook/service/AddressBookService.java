@@ -10,5 +10,7 @@ public interface AddressBookService {
 
     String editContact(String name, Contact updatedContact);
 
+    String deleteContact(String name);
+
     List<Contact> getAllContacts();
 }
