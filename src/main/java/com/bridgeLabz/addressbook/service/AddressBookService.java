@@ -1,8 +1,14 @@
 package com.bridgeLabz.addressbook.service;
-import java.util.*;
+
+import java.util.List;
+
 import com.bridgeLabz.addressbook.model.Contact;
 
 public interface AddressBookService {
+
     String addContacts(Contact contact);
-    List<Contact> getAllContacts();  
+
+    String editContact(String name, Contact updatedContact);
+
+    List<Contact> getAllContacts();
 }
