@@ -10,52 +10,18 @@ import com.bridgeLabz.addressbook.model.Contact;
 @Service
 public class AddressBookServiceImpl implements AddressBookService {
 
-    private List<Contact> list = new ArrayList<>();
+    private List<Contact> contactList = new ArrayList<>();
 
     @Override
-    public String addContacts(Contact contact) {
-        list.add(contact);
-        return "Contact added successfully";
-    }
+    public String addMultipleContacts(List<Contact> contacts) {
 
-    @Override
-    public String editContact(String name, Contact updatedContact) {
+        contactList.addAll(contacts);
 
-        for (Contact contact : list) {
-
-            if (contact.getFirstName().equalsIgnoreCase(name)) {
-
-                contact.setLastName(updatedContact.getLastName());
-                contact.setAddress(updatedContact.getAddress());
-                contact.setCity(updatedContact.getCity());
-                contact.setState(updatedContact.getState());
-                contact.setZip(updatedContact.getZip());
-                contact.setPhoneNumber(updatedContact.getPhoneNumber());
-                contact.setEmail(updatedContact.getEmail());
-
-                return "Contact updated successfully";
-            }
-        }
-
-        return "Contact not found";
-    }
-
-    @Override
-    public String deleteContact(String name) {
-
-        for (Contact contact : list) {
-
-            if (contact.getFirstName().equalsIgnoreCase(name)) {
-                list.remove(contact);
-                return "Contact deleted successfully";
-            }
-        }
-
-        return "Contact not found";
+        return "Multiple contacts added successfully";
     }
 
     @Override
     public List<Contact> getAllContacts() {
-        return list;
+        return contactList;
     }
 }

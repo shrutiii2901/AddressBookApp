@@ -3,11 +3,8 @@ package com.bridgeLabz.addressbook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,28 +19,15 @@ public class AddressBookController {
     @Autowired
     private AddressBookService service;
 
- 
-    @PostMapping("/add")
-    public String addContact(@RequestBody Contact contact){
-        return service.addContacts(contact);
-    }
-
-  
-    @PutMapping("/edit/{name}")
-    public String editContact(@PathVariable String name,
-                              @RequestBody Contact contact){
-        return service.editContact(name, contact);
+   
+    @PostMapping("/addMultiple")
+    public String addMultipleContacts(@RequestBody List<Contact> contacts) {
+        return service.addMultipleContacts(contacts);
     }
 
     
-    @DeleteMapping("/delete/{name}")
-    public String deleteContact(@PathVariable String name){
-        return service.deleteContact(name);
-    }
-
-   
     @GetMapping("/contacts")
-    public List<Contact> getContacts(){
+    public List<Contact> getAllContacts() {
         return service.getAllContacts();
     }
 }

@@ -6,11 +6,7 @@ import com.bridgeLabz.addressbook.model.Contact;
 
 public interface AddressBookService {
 
-    String addContacts(Contact contact);
-
-    String editContact(String name, Contact updatedContact);
-
-    String deleteContact(String name);
+    String addMultipleContacts(List<Contact> contacts);
 
     List<Contact> getAllContacts();
 }
